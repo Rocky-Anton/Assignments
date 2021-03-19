@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,force:slds,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg','.pdf','.img',]" />
+    <aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+    <c:userDetails/>
+    <div >
+        <lightning:fileUpload label="Attachments"
+        name="fileUploader"
+        multiple="true"
+        accept="{!v.filetype}"
+        recordId="{!v.recordId}"
+        onuploadfinished="{!c.handleUploadFinished}" />
+    </div>
+</aura:component>
